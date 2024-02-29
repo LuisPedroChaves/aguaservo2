@@ -37,8 +37,8 @@ export class AuthService {
   }
 
   getSession(): ISession {
-    return JSON.parse(localStorage.getItem('la-vina-session')!)
-      ? JSON.parse(localStorage.getItem('la-vina-session')!)
+    return JSON.parse(localStorage.getItem('aguaservo2-session')!)
+      ? JSON.parse(localStorage.getItem('aguaservo2-session')!)
       : null;
   }
 }

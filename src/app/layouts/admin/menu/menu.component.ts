@@ -56,7 +56,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   logout(): void {
     this.appStore.dispatch(LOGOUT());
-    localStorage.removeItem('linper-session');
+    localStorage.removeItem('aguaservo2-session');
     this.router.navigate(['/session']);
   }
 

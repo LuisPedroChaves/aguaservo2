@@ -13,6 +13,7 @@ import { UserReducer } from './store/reducers/user.reducer';
 import { RoleReducer } from './store/reducers/role.reducer';
 import { UserEffects } from './store/effects/user.effects';
 import { RoleEffects } from './store/effects/role.effects';
+import { UserService } from './services/user.service';
 
 
 
@@ -30,6 +31,7 @@ import { RoleEffects } from './store/effects/role.effects';
     StoreModule.forFeature('user', UserReducer),
     StoreModule.forFeature('role', RoleReducer),
 		EffectsModule.forFeature([UserEffects, RoleEffects]),
-  ]
+  ],
+  providers: [UserService]
 })
 export class UserModule { }

@@ -17,12 +17,9 @@ export class UserService {
   ) {}
 
   read(): Observable<IUser[]> {
-    console.log('RIU');
-
-    return this.http.get<IUser[]>(`${this.API_USER}`).pipe(
-      tap((resp) => console.log(resp)),
-      map((resp: any) => resp.users)
-    );
+    return this.http
+      .get<IUser[]>(`${this.API_USER}`)
+      .pipe(map((resp: any) => resp.users));
   }
 
   create(user: IUser): Observable<IUser> {
@@ -48,16 +45,21 @@ export class UserService {
   update(user: IUser): Observable<IUser> {
     let snackBarRef = this.snackBarService.loading();
 
-    return this.http.put(`${this.API_USER}/${user._id}`, user).pipe(
-      map((resp: any) => {
-        this.snackBarService.show(
-          'SUCCESS',
-          'Usuario actualizado con éxito',
-          3000
-        );
-        return resp.user;
+    return this.http
+      .put(`${this.API_USER}/${user._id}`, {
+        ...user,
+        role: user.role._id,
       })
-    );
+      .pipe(
+        map((resp: any) => {
+          this.snackBarService.show(
+            'SUCCESS',
+            'Usuario actualizado con éxito',
+            3000
+          );
+          return resp.user;
+        })
+      );
   }
 
   delete(_id: string): Observable<IUser> {

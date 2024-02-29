@@ -43,11 +43,11 @@
             <div>
               <span fxFlex="12"></span>
               <p class="mat-subtitle-2">
-                {{ user.role.name }}
+                {{ user.role?.name }}
               </p>
             </div>
-            <button mat-flat-button *appRoleAllow="'Editar'" (click)="openDrawer1('390px', 'NEW_USER', user)"
-              color="primary" class="outlined-button">
+            <button mat-flat-button (click)="openDrawer1('390px', 'NEW_USER', user)"
+              color="primary" class="filled-tonal-button">
               Editar
             </button>
           </mat-card-content>

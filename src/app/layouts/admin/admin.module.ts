@@ -9,6 +9,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { DrawerReducer } from './store/drawer.reducer';
 import { LogoComponent } from '../../core/components/logo/logo.component';
 import { ThemeButtonComponent } from '../../core/components/theme-button/theme-button.component';
+import { NewRoleComponent } from '../../modules/user/components/new-role/new-role.component';
+import { NewUserComponent } from '../../modules/user/components/new-user/new-user.component';
 
 @NgModule({
   declarations: [IndexComponent, MenuComponent],
@@ -20,7 +22,9 @@ import { ThemeButtonComponent } from '../../core/components/theme-button/theme-b
     StoreModule.forFeature('drawer', DrawerReducer),
     // components
     LogoComponent,
-    ThemeButtonComponent
+    ThemeButtonComponent,
+    NewRoleComponent,
+    NewUserComponent
   ],
 })
 export class AdminModule {}

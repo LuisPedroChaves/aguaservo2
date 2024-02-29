@@ -37,6 +37,12 @@
       <mat-drawer-content>
 
         <!-- components -->
+        @if (component1 === 'NEW_ROLE') {
+        <app-new-role></app-new-role>
+        }
+        @if (component1 === 'NEW_USER') {
+        <app-new-user></app-new-user>
+        }
         <!-- components -->
 
       </mat-drawer-content>

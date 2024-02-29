@@ -28,6 +28,8 @@ import { SimplebarAngularModule } from 'simplebar-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
 // Pipes
 import { FilterPipe } from './pipes/filter.pipe';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { getSpanishPaginatorIntl } from './spanish-paginator-intl';
 
 const MODULES = [
   CommonModule,
@@ -57,7 +59,7 @@ const MODULES = [
   MatSnackBarModule,
   // Npm Modules
   SimplebarAngularModule,
-  FlexLayoutModule
+  FlexLayoutModule,
   // Directives
 ];
 
@@ -65,6 +67,9 @@ const MODULES = [
   declarations: [FilterPipe],
   imports: [...MODULES],
   exports: [...MODULES],
-  providers: [FilterPipe],
+  providers: [
+    FilterPipe,
+    { provide: MatPaginatorIntl, useValue: getSpanishPaginatorIntl() },
+  ],
 })
 export class SharedModule {}

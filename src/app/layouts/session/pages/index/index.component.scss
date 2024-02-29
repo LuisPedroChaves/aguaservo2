@@ -1,0 +1,11 @@
+.session {
+  height: 100%;
+  width: 100%;
+}
+
+mat-toolbar {
+  background-color: transparent !important;
+  .logosize {
+    font-size: 30px;
+  }
+}

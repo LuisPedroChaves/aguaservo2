@@ -1,1 +1,20 @@
-<p>index works!</p>
+<ngx-simplebar class="index-desktop surface-container">
+
+  <header fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
+    <div>
+      <span class="mat-headline-4"><b>Dashboard</b></span>
+    </div>
+
+    <div fxLayoutGap="8px">
+      <button mat-flat-button routerLink="/users" #users="routerLinkActive" routerLinkActive="filled-button-tertiary"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [ngClass]="users.isActive ? 'filled-button-tertiary' : 'filled-tonal-button-tertiary'">
+        <mat-icon>persons</mat-icon>
+        Usuarios
+      </button>
+    </div>
+
+  </header>
+
+
+</ngx-simplebar>
