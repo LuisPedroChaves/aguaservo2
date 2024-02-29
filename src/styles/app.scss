@@ -1,0 +1,64 @@
+@use "@angular/material" as mat;
+
+@import "./buttons.scss";
+@import "./toolbars.scss";
+@import "./cards.scss";
+@import "./drawers.scss";
+@import "./tables.scss";
+
+.body {
+  height: 100vh;
+  height: 100svh;
+}
+
+.index-desktop {
+  height: calc(100vh - 24px) !important;
+  height: calc(100svh - 24px) !important;
+  border-radius: 24px 0px 0px 24px !important;
+  padding: 24px 24px 0px 24px !important;
+  header {
+    padding-bottom: 24px !important;
+    .mat-headline-4 {
+      margin: 0px !important;
+    }
+  }
+}
+
+.grid-content {
+  height: calc(100vh - 88px) !important;
+  height: calc(100svh - 88px) !important;
+  header {
+    padding: 0px 0px 8px 0px !important;
+  }
+  .list {
+    height: calc(100vh - 152px);
+    height: calc(100svh - 152px);
+    .grid {
+      margin: 0px !important;
+    }
+  }
+}
+
+.table-content {
+  height: calc(100vh - 88px) !important;
+  height: calc(100svh - 88px) !important;
+  header {
+    padding: 0px 0px 8px 0px !important;
+  }
+  .table {
+    height: calc(100vh - 176px) !important;
+    height: calc(100svh - 176px) !important;
+  }
+}
+
+.border {
+  padding: 16px !important;
+}
+
+.margin-16 {
+  margin: 16px !important;
+}
+
+.pointer {
+  cursor: pointer !important;
+}

@@ -1,0 +1,28 @@
+<ngx-simplebar class="index-desktop surface-container">
+
+  <header fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
+    <div>
+      <span class="mat-headline-4"><b>Usuarios</b></span>
+    </div>
+
+    <div fxLayoutGap="8px">
+      <button mat-flat-button routerLink="/users" #users="routerLinkActive" routerLinkActive="filled-button-tertiary"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [ngClass]="users.isActive ? 'filled-button-tertiary' : 'filled-tonal-button-tertiary'">
+        <mat-icon>persons</mat-icon>
+        Usuarios
+      </button>
+
+      <button mat-flat-button routerLink="/users/roles" #roles="routerLinkActive"
+        routerLinkActive="filled-button-tertiary"
+        [ngClass]="roles.isActive ? 'filled-button-tertiary' : 'filled-tonal-button-tertiary'">
+        <mat-icon>admin_panel_settings</mat-icon>
+        Roles
+      </button>
+    </div>
+
+  </header>
+
+  <router-outlet></router-outlet>
+
+</ngx-simplebar>

@@ -1,0 +1,72 @@
+<!-- drawer 1 -->
+<mat-drawer-container class="body" (backdropClick)="closeDrawer1()">
+
+  <mat-drawer #drawer1 position="end" [style.width]="widthDrawer1" (keydown.escape)="closeDrawer1()" disableClose
+    class="drawer">
+
+    <!-- drawer 2 -->
+    <mat-drawer-container (backdropClick)="closeDrawer2()">
+
+      <mat-drawer #drawer2 position="end" [style.width]="widthDrawer2" (keydown.escape)="closeDrawer2()" disableClose
+        class="drawer">
+
+        <!-- drawer 3 -->
+        <mat-drawer-container (backdropClick)="closeDrawer3()">
+
+          <mat-drawer #drawer3 position="end" [style.width]="widthDrawer3" (keydown.escape)="closeDrawer3()"
+            disableClose class="drawer">
+
+            <!-- admin -->
+
+            <!-- admin -->
+
+          </mat-drawer>
+
+          <mat-drawer-content>
+
+            <!-- admin -->
+            <!-- admin -->
+
+          </mat-drawer-content>
+
+        </mat-drawer-container>
+        <!-- ----- drawer 3 ----- -->
+
+      </mat-drawer>
+
+      <mat-drawer-content>
+
+        <!-- components -->
+        <!-- components -->
+
+      </mat-drawer-content>
+
+    </mat-drawer-container>
+    <!-- ----- drawer 2 ----- -->
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+
+    <!-- side drawer 1 -->
+    <mat-drawer-container class="body" (backdropClick)="closeDrawer1()">
+
+
+      <mat-drawer #sideDrawer position="end" mode="side" [style.width]="drawerWidth" class="surface side-drawer">
+
+        <!-- components -->
+        <!-- components -->
+
+      </mat-drawer>
+
+      <mat-drawer-content>
+
+        <app-menu></app-menu>
+
+      </mat-drawer-content>
+    </mat-drawer-container>
+    <!-- ----- side drawer 1 ----- -->
+
+  </mat-drawer-content>
+</mat-drawer-container>
+<!-- ----- drawer 1 ----- -->

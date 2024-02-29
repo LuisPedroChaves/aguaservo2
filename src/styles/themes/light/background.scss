@@ -1,0 +1,25 @@
+$background: #F6FAFE;
+$on-background: #181C1F;
+
+$outline: #71787E;
+$outline-variant: #C1C7CE;
+
+.background {
+  background-color: $background !important;
+  color: $on-background !important;
+  mat-icon {
+    color: $on-background !important;
+  }
+  span {
+    color: $on-background !important;
+  }
+}
+
+.outline {
+  color: $outline !important;
+
+}
+
+.outline-variant {
+  color: $outline-variant !important;
+}

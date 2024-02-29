@@ -1,0 +1,30 @@
+[
+  {
+    "roleType": "admin",
+    "selected": false,
+    "name": "users",
+    "label": "Usuarios",
+    "type": "sub",
+    "icon": "person",
+    "permissions": [],
+    "permissionsCatalog": [],
+    "options": [
+      {
+        "selected": false,
+        "name": "users",
+        "label": "Usuarios",
+        "url": "users",
+        "permissions": [],
+        "permissionsCatalog": []
+      },
+      {
+        "selected": false,
+        "name": "roles",
+        "label": "Roles",
+        "url": "users/roles",
+        "permissions": [],
+        "permissionsCatalog": []
+      }
+    ]
+  }
+]

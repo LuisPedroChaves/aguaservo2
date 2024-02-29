@@ -1,0 +1,12 @@
+@if (isDark) {
+  <button appThemeClass="outlined-button" mat-icon-button (click)="changeTheme()" matTooltip="Modo Claro"
+    matTooltipPosition="after">
+    <mat-icon>light_mode</mat-icon>
+  </button>
+  }
+  @else {
+  <button appThemeClass="outlined-button" mat-icon-button (click)="changeTheme()" matTooltip="Modo Oscuro"
+    matTooltipPosition="after">
+    <mat-icon>dark_mode</mat-icon>
+  </button>
+  }

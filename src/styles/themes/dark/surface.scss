@@ -1,0 +1,142 @@
+$inverse-surface: #dfe3e7;
+$inverse-on-surface: #2c3134;
+
+$inverse-primary: #1f6587;
+
+$surface-variant: #41484d;
+$on-surface-variant: #c1c7ce;
+
+$surface: #0f1417;
+$surface-bright: #353a3d;
+$surface-dim: #0f1417;
+
+$surface-container-highest: #313539;
+$surface-container-high: #262b2e;
+$surface-container: #1c2024;
+$surface-container-low: #181c1f;
+$surface-container-lowest: #0a0f12;
+
+$on-surface: #dfe3e7;
+
+.dark-theme {
+  .inverse-surface {
+    background-color: $inverse-surface !important;
+    color: $inverse-on-surface !important;
+    mat-icon {
+      color: $inverse-on-surface !important;
+    }
+    span {
+      color: $inverse-on-surface !important;
+    }
+  }
+
+  .inverse-primary {
+    background-color: $inverse-primary !important;
+    color: $on-surface !important;
+    mat-icon {
+      color: $on-surface !important;
+    }
+    span {
+      color: $on-surface !important;
+    }
+  }
+
+  .surface {
+    background-color: $surface !important;
+    color: $on-surface !important;
+    mat-icon {
+      color: $on-surface !important;
+    }
+    span {
+      color: $on-surface !important;
+    }
+  }
+
+  .surface-bright {
+    background-color: $surface-bright !important;
+    color: $on-surface !important;
+    mat-icon {
+      color: $on-surface !important;
+    }
+    span {
+      color: $on-surface !important;
+    }
+  }
+
+  .surface-dim {
+    background-color: $surface-dim !important;
+    color: $on-surface !important;
+    mat-icon {
+      color: $on-surface !important;
+    }
+    span {
+      color: $on-surface !important;
+    }
+  }
+
+  .surface-variant {
+    background-color: $surface-variant !important;
+    color: $on-surface-variant !important;
+    mat-icon {
+      color: $on-surface-variant !important;
+    }
+    span {
+      color: $on-surface-variant !important;
+    }
+  }
+
+  .surface-container-highest {
+    background-color: $surface-container-highest !important;
+    color: $on-surface !important;
+    mat-icon {
+      color: $on-surface !important;
+    }
+    span {
+      color: $on-surface !important;
+    }
+  }
+
+  .surface-container-high {
+    background-color: $surface-container-high !important;
+    color: $on-surface !important;
+    mat-icon {
+      color: $on-surface !important;
+    }
+    span {
+      color: $on-surface !important;
+    }
+  }
+
+  .surface-container {
+    background-color: $surface-container !important;
+    color: $on-surface !important;
+    mat-icon {
+      color: $on-surface !important;
+    }
+    span {
+      color: $on-surface !important;
+    }
+  }
+
+  .surface-container-low {
+    background-color: $surface-container-low !important;
+    color: $on-surface !important;
+    mat-icon {
+      color: $on-surface !important;
+    }
+    span {
+      color: $on-surface !important;
+    }
+  }
+
+  .surface-container-lowest {
+    background-color: $surface-container-lowest !important;
+    color: $on-surface !important;
+    mat-icon {
+      color: $on-surface !important;
+    }
+    span {
+      color: $on-surface !important;
+    }
+  }
+}

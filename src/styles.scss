@@ -1,1 +1,50 @@
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+@import "./styles/themes/light/light.scss";
+@import "./styles/themes/dark/dark.scss";
+
+@include mat.core();
+
+.active-elevation {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:active {
+    @include mat.elevation(4);
+  }
+
+  &:hover {
+    @include mat.elevation(4);
+  }
+}
+
+.small-input {
+  .mat-mdc-form-field-infix {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    min-height: 36px !important;
+  }
+
+  .mat-mdc-form-field-icon-prefix > .mat-icon,
+  .mat-mdc-form-field-icon-suffix > .mat-icon {
+    padding: 0px 6px 0px 6px !important;
+    font-size: 18px;
+  }
+}
+
+.no-hint {
+  .mat-mdc-form-field-subscript-wrapper {
+    height: 8px;
+  }
+}
+
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

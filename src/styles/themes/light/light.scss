@@ -1,0 +1,28 @@
+@use "@angular/material" as mat;
+
+@import "./palette.scss";
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette($light-primary),
+      accent: mat.define-palette($light-accent),
+      warn: mat.define-palette($warn),
+    ),
+    density: -2,
+  )
+);
+
+@include mat.all-component-themes($light-theme);
+
+// colors
+@import "./background.scss";
+@import "./surface.scss";
+@import "./error.scss";
+@import "./tertiary.scss";
+@import "./secondary.scss";
+@import "./primary.scss";
+// components
+@import "./buttons.scss";
+@import "./cards.scss";
+@import "./tables.scss";

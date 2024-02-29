@@ -1,0 +1,16 @@
+@use "@angular/material" as mat;
+
+.drawer-content {
+  height: calc(100vh - 185px);
+  height: calc(100svh - 185px);
+}
+
+.sizebutton {
+  height: 56px;
+  text-align: center;
+  border-radius: 12px;
+}
+
+mat-card {
+  @include mat.elevation(0);
+}

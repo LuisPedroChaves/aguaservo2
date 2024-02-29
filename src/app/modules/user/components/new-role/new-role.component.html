@@ -1,0 +1,122 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="newRole" autocomplete="off" class="surface drawer-form">
+
+  <mat-toolbar fxLayoutGap="8px" class="drawer-header">
+
+    @if (role) {
+    <span>Editar rol</span>
+    }
+    @if (!role) {
+    <span>Nuevo rol</span>
+    }
+
+    <span fxFlex></span>
+
+    <button mat-icon-button (click)="closeDrawer()" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </mat-toolbar>
+
+  <ngx-simplebar class="drawer-content">
+
+    <div fxLayout="column" fxLayoutGap="24px" fxLayoutAlign="center stretch">
+
+      <div fxLayout="row" fxLayoutGap="24px" fxLayoutAlign="center center">
+
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name" type="text" placeholder="Nombre del rol" />
+          <mat-icon matSuffix>admin_panel_settings</mat-icon>
+          @if (newRole.get('name')?.hasError('required')) {
+          <mat-error>
+            *El nombre es requerido.
+          </mat-error>
+          }
+        </mat-form-field>
+
+        <div fxLayout="column">
+
+          <mat-button-toggle-group formControlName="type" class="sizebutton">
+            <mat-button-toggle value="admin">ADMIN</mat-button-toggle>
+            <mat-button-toggle value="cellar">BODEGA</mat-button-toggle>
+          </mat-button-toggle-group>
+
+          <span>Tipo de rol</span>
+
+        </div>
+
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center center">
+        @if (filterModules.length === 0) {
+        <mat-spinner color="accent"></mat-spinner>
+        }
+      </div>
+
+      @for (module of filterModules; track module) {
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-card fxFlex class="outlined-card">
+          <mat-card-header fxLayoutAlign="center center">
+            <span class=" mat-headline-6">
+              <mat-checkbox [(ngModel)]="module.selected" [ngModelOptions]="{standalone: true}"
+                (change)="selectChilds(module)"></mat-checkbox>
+              {{module.label}}
+            </span>
+            <span fxFlex></span>
+            @if (module.permissionsCatalog.length > 0) {
+            <mat-form-field fxFlex="50" appearance="outline" floatLabel="always" class="small-input">
+              <mat-label>Permisos</mat-label>
+              <mat-select multiple [(ngModel)]="module.permissions" [ngModelOptions]="{standalone: true}">
+                @for (permission of module.permissionsCatalog; track permission) {
+                <mat-option [value]="permission">{{permission}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            }
+          </mat-card-header>
+          <mat-card-content>
+            @for (option of module.options; track option) {
+            <div fxLayout="row">
+              <mat-checkbox fxFlex [(ngModel)]="option.selected" [ngModelOptions]="{standalone: true}"
+                (change)="selectParent(module)">{{option.label}}</mat-checkbox>
+              @if (option.permissionsCatalog.length > 0) {
+              <mat-form-field fxFlex appearance="outline" floatLabel="always" class="small-input">
+                <mat-label>Permisos</mat-label>
+                <mat-select multiple [(ngModel)]="option.permissions" [ngModelOptions]="{standalone: true}">
+                  @for (permission of option.permissionsCatalog; track permission) {
+                  <mat-option [value]="permission">{{permission}}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              }
+            </div>
+            }
+          </mat-card-content>
+        </mat-card>
+      </div>
+      }
+    </div>
+  </ngx-simplebar>
+
+  <mat-divider></mat-divider>
+
+  @if (!role) {
+  <div class="drawer-actions" fxLayoutGap="8px">
+    <button mat-flat-button type="submit" class="filled-button">
+      Guardar
+    </button>
+  </div>
+  }
+
+  @if (role) {
+  <div class="drawer-actions" fxLayoutGap="8px">
+    <button mat-flat-button type="submit" class="filled-button">
+      Actualizar
+    </button>
+    <button mat-stroked-button (click)="deleteRole()" type="button" class="outlined-button">
+      Eliminar
+    </button>
+  </div>
+  }
+
+</form>

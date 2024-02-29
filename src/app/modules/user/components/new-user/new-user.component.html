@@ -1,0 +1,130 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="newUser" autocomplete="off" class="surface drawer-form">
+
+  <mat-toolbar fxLayoutGap="8px" class="drawer-header">
+
+    @if (user) {
+    <span>Editar usuario</span>
+    }
+    @if (!user) {
+    <span>Nuevo usuario</span>
+    }
+
+    <span fxFlex></span>
+
+    <button mat-icon-button (click)="closeDrawer1()" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </mat-toolbar>
+
+  <div fxLayout="row" fxLayoutAlign="center center" class="drawer-content">
+
+    <div fxLayout="column" style="width: 100%;" fxLayoutGap="12px">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Rol</mat-label>
+        <input type="text" matInput formControlName="role" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayRole">
+          @for (option of filteredRoles | async; track option) {
+          <mat-option [value]="option">
+            {{option.name}}
+          </mat-option>
+          }
+        </mat-autocomplete>
+        @if (newUser.get('role').value) {
+        <button matSuffix mat-icon-button (click)="newUser.get('role').setValue(null);">
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+        @if (newUser.get('role')?.hasError('required')) {
+        <mat-error>
+          *El rol es requerido.
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Nombre completo</mat-label>
+        <input matInput type="text" formControlName="name" placeholder="Ej. Juan Perez" />
+        <mat-icon matSuffix>person</mat-icon>
+        @if (newUser.get('name')?.hasError('required')) {
+        <mat-error>
+          *El nombre es requerido
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Nombre de usuario</mat-label>
+        <input matInput type="text" formControlName="username" placeholder="JUAN" />
+        <mat-icon matSuffix>person_pin</mat-icon>
+        @if (newUser.get('username')?.hasError('required')) {
+        <mat-error>
+          *El nombre de usuario es requerido.
+        </mat-error>
+        }
+        @if (newUser.get('username')?.hasError('cannotContainSpace')) {
+        <mat-error>
+          *No se permiten espacios en blanco.
+        </mat-error>
+        }
+      </mat-form-field>
+
+      @if (!user) {
+      <mat-divider></mat-divider>
+      <br>
+
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="visible === false ? 'password' : 'text'" formControlName="password"
+          placeholder="********" />
+        <mat-icon matSuffix class="material-icons-outlined pointer" [ngClass]="{ 'text-muted': visible === false }"
+          (click)="visible = !visible">
+          {{ visible ? "visibility" : "visibility_off" }}</mat-icon>
+        <mat-hint>No se permiten símbolos en la contraseña.</mat-hint>
+      </mat-form-field>
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Confirmar contraseña</mat-label>
+        <input matInput [type]="visible === false ? 'password' : 'text'" formControlName="confirmPassword"
+          placeholder="********">
+        @if (!newUser.hasError('notSame') && newUser.controls.confirmPassword.value !== '') {
+        <mat-icon matSuffix color="accent">
+          check_circle</mat-icon>
+        }
+        @if (newUser.hasError('notSame') && newUser.controls.confirmPassword.value !== '') {
+        <mat-icon matSuffix color="warn">
+          error</mat-icon>
+        }
+        @if (newUser.hasError('notSame')) {
+        <mat-error>
+          *Las contraseñas no coinciden.
+        </mat-error>
+        }
+      </mat-form-field>
+      }
+
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  @if (!user) {
+  <div class="drawer-actions" fxLayoutGap="8px">
+    <button mat-flat-button type="submit" class="filled-button">
+      Guardar
+    </button>
+  </div>
+  }
+
+  @if (user) {
+  <div class="drawer-actions" fxLayoutGap="8px">
+    <button mat-flat-button type="submit" class="filled-button">
+      Guardar
+    </button>
+    <button *appRoleAllow="'Eliminar'" mat-stroked-button (click)="deleteUser()" type="button" class="outlined-button">
+      Eliminar
+    </button>
+  </div>
+  }
+
+</form>

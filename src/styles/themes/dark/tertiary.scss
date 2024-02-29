@@ -1,0 +1,67 @@
+$tertiary: #cbc1e9;
+$on-tertiary: #332c4c;
+
+$tertiary-container: #4a4263;
+$on-tertiary-container: #e7deff;
+
+$tertiary-fixed: #e7deff;
+$on-tertiary-fixed: #1e1735;
+
+$tertiary-fixed-dim: #cbc1e9;
+$on-tertiary-fixed-dim: #4a4263;
+
+.dark-theme {
+  .tertiary {
+    color: $tertiary !important;
+    mat-icon {
+      color: $tertiary !important;
+    }
+    span {
+      color: $tertiary !important;
+    }
+  }
+
+  .tertiary-background {
+    background-color: $tertiary !important;
+    color: $on-tertiary !important;
+    mat-icon {
+      color: $on-tertiary !important;
+    }
+    span {
+      color: $on-tertiary !important;
+    }
+  }
+
+  .tertiary-container {
+    background-color: $tertiary-container !important;
+    color: $on-tertiary-container !important;
+    mat-icon {
+      color: $on-tertiary-container !important;
+    }
+    span {
+      color: $on-tertiary-container !important;
+    }
+  }
+
+  .tertiary-fixed {
+    background-color: $tertiary-fixed !important;
+    color: $on-tertiary-fixed !important;
+    mat-icon {
+      color: $on-tertiary-fixed !important;
+    }
+    span {
+      color: $on-tertiary-fixed !important;
+    }
+  }
+
+  .tertiary-dim {
+    background-color: $tertiary-fixed-dim !important;
+    color: $on-tertiary-fixed-dim !important;
+    mat-icon {
+      color: $on-tertiary-fixed-dim !important;
+    }
+    span {
+      color: $on-tertiary-fixed-dim !important;
+    }
+  }
+}

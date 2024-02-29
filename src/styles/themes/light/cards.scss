@@ -1,0 +1,43 @@
+.outlined-card {
+  background-color: $surface !important;
+  color: $on-surface !important;
+  border: 1px solid $outline-variant !important;
+}
+
+.menu-card {
+  background-color: $surface-container !important;
+  color: $on-surface !important;
+  mat-icon {
+    color: $on-surface !important;
+  }
+  :hover {
+    background-color: $surface-container-highest !important;
+    color: $on-surface !important;
+  }
+}
+
+.filled-card {
+  background-color: $primary !important;
+  color: $on-primary !important;
+  mat-icon {
+    color: $on-primary !important;
+  }
+}
+
+.primary-action-card {
+  background-color: $surface-container-highest !important;
+  color: $on-surface !important;
+  mat-icon {
+    color: $on-surface !important;
+  }
+  :hover {
+    background-color: $primary !important;
+    color: $on-primary !important;
+    mat-icon {
+      color: $on-primary !important;
+    }
+    mat-card-subtitle {
+      color: $on-primary !important;
+    }
+  }
+}

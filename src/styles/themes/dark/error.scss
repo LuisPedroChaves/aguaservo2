@@ -1,0 +1,39 @@
+$error: #FFB4AB;
+$on-error: #690005;
+
+$error-container: #93000A;
+$on-error-container: #FFDAD6;
+
+.dark-theme {
+  .error {
+    color: $error !important;
+    mat-icon {
+      color: $error !important;
+    }
+    span {
+      color: $error !important;
+    }
+  }
+
+  .error-background {
+    background-color: $error !important;
+    color: $on-error !important;
+    mat-icon {
+      color: $on-error !important;
+    }
+    span {
+      color: $on-error !important;
+    }
+  }
+
+  .error-container {
+    background-color: $error-container !important;
+    color: $on-error-container !important;
+    mat-icon {
+      color: $on-error-container !important;
+    }
+    span {
+      color: $on-error-container !important;
+    }
+  }
+}

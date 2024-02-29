@@ -1,0 +1,17 @@
+button {
+  border-radius: 24px !important;
+}
+
+.grid-floating-button {
+  position: fixed !important;
+  bottom: 48px !important; /* Ajusta la distancia desde la parte inferior de la pantalla */
+  right: 48px !important; /* Ajusta la distancia desde la parte derecha de la pantalla */
+  z-index: 1000 !important;
+}
+
+.table-floating-button {
+  position: fixed !important;
+  bottom: 72px !important; /* Ajusta la distancia desde la parte inferior de la pantalla */
+  right: 72px !important; /* Ajusta la distancia desde la parte derecha de la pantalla */
+  z-index: 1000 !important;
+}

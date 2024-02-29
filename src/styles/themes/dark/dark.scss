@@ -1,0 +1,30 @@
+@use "@angular/material" as mat;
+
+@import "./palette.scss";
+
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette($dark-primary),
+      accent: mat.define-palette($dark-accent),
+      warn: mat.define-palette($warn),
+    ),
+    density: -2,
+  )
+);
+
+// colors
+@import "./background.scss";
+@import "./surface.scss";
+@import "./error.scss";
+@import "./tertiary.scss";
+@import "./secondary.scss";
+@import "./primary.scss";
+// components
+@import "./buttons.scss";
+@import "./cards.scss";
+@import "./tables.scss";
+
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+}

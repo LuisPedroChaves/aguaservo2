@@ -1,0 +1,84 @@
+<div class="body">
+  <div fxFlex="80px" fxLayout="column" fxLayoutGap="24px" class="surface app-menu">
+    <div routerLink="/" fxLayout="column" fxLayoutAlign="center center" class="pointer">
+      <app-logo [width]="40"></app-logo>
+      <b>AGUASER.</b>
+    </div>
+
+    <ngx-simplebar class="app-menu-content">
+      <div fxLayout="column" fxLayoutGap="4px">
+
+        <div (click)="closeMenu()" (mouseenter)="closeMenu()">
+          <mat-card fxLayout="column" fxLayoutAlign="center center" routerLink="/" class="app-menu-button pointer">
+            <button mat-icon-button #dashboard="routerLinkActive" routerLinkActive="secondary-container"
+              [routerLinkActiveOptions]="{ exact: true }" [ngClass]="dashboard.isActive ? 'secondary-container' : ''">
+              <mat-icon fontIcon="dashboard"></mat-icon>
+            </button>
+            <span class="mat-caption">Dashboard</span>
+          </mat-card>
+        </div>
+
+        <div *ngFor="let module of role?.modules">
+
+          <mat-card *ngIf="module.type === 'link'" (click)="closeMenu()" (mouseenter)="closeMenu()" fxLayout="column"
+            fxLayoutAlign="center center" [routerLink]="module.name" class="app-menu-button pointer">
+            <button mat-icon-button #link="routerLinkActive" routerLinkActive="secondary-container"
+              [ngClass]="link.isActive ? 'secondary-container' : ''">
+              <mat-icon [fontIcon]="module.icon"></mat-icon>
+            </button>
+            <span class="mat-caption">{{module.label}}</span>
+          </mat-card>
+
+          <mat-card *ngIf="module.type === 'sub'" (click)="openMenu(module)" (mouseenter)="openMenu(module)"
+            fxLayout="column" fxLayoutAlign="center center" [routerLink]="module.name" class="app-menu-button pointer">
+            <button mat-icon-button #sub="routerLinkActive" routerLinkActive="secondary-container"
+              [ngClass]="sub.isActive ? 'secondary-container' : ''">
+              <mat-icon [fontIcon]="module.icon"></mat-icon>
+            </button>
+            <span class="mat-caption">{{module.label}}</span>
+          </mat-card>
+        </div>
+
+      </div>
+    </ngx-simplebar>
+
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="4px">
+      <app-theme-button></app-theme-button>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" fxLayoutAlign="center center" matTooltip="Usuario"
+        matTooltipPosition="after">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">Cerrar sesión</button>
+      </mat-menu>
+
+    </div>
+  </div>
+
+  <mat-drawer-container fxFlex [hasBackdrop]="false" class="surface">
+    <mat-drawer #menuDrawer class="surface-container-low">
+      <ngx-simplebar class="menu-sidebar">
+        <mat-nav-list>
+
+          <!-- <mat-list-item (click)="closeMenu()" [routerLink]="module?.name" #subDashboard="routerLinkActive"
+            [routerLinkActive]="menuActiveClass()" [routerLinkActiveOptions]="{ exact: true }"
+            [ngClass]="subDashboard.isActive ? menuActiveClass() : ''" class="menu-option">
+            <span matListItemTitle>{{module?.label}}</span>
+          </mat-list-item> -->
+
+          <mat-list-item *ngFor="let option of module?.options; let i = index" (click)="closeMenu()"
+            [routerLink]="option.url" #subLink="routerLinkActive" routerLinkActive="secondary-container"
+            [routerLinkActiveOptions]="{ exact: true }" [ngClass]="subLink.isActive ? 'secondary-container' : ''"
+            class="menu-option">
+            <span matListItemTitle>{{option.label}}</span>
+          </mat-list-item>
+
+        </mat-nav-list>
+      </ngx-simplebar>
+    </mat-drawer>
+    <mat-drawer-content (mouseenter)="closeMenu()">
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

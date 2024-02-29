@@ -1,0 +1,37 @@
+$error: #BA1A1A;
+$on-error: #FFFFFF;
+
+$error-container: #FFDAD6;
+$on-error-container: #410002;
+
+.error {
+  color: $error !important;
+  mat-icon {
+    color: $error !important;
+  }
+  span {
+    color: $error !important;
+  }
+}
+
+.error-background {
+  background-color: $error !important;
+  color: $on-error !important;
+  mat-icon {
+    color: $on-error !important;
+  }
+  span {
+    color: $on-error !important;
+  }
+}
+
+.error-container {
+  background-color: $error-container !important;
+  color: $on-error-container !important;
+  mat-icon {
+    color: $on-error-container !important;
+  }
+  span {
+    color: $on-error-container !important;
+  }
+}

@@ -1,0 +1,26 @@
+$background: #0f1417;
+$on-background: #dfe3e7;
+
+$outline: #8b9298;
+$outline-variant: #41484d;
+
+.dark-theme {
+  .background {
+    background-color: $background !important;
+    color: $on-background !important;
+    mat-icon {
+      color: $on-background !important;
+    }
+    span {
+      color: $on-background !important;
+    }
+  }
+
+  .outline {
+    color: $outline !important;
+  }
+
+  .outline-variant {
+    color: $outline-variant !important;
+  }
+}
