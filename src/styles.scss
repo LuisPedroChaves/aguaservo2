@@ -2,6 +2,8 @@
 // Plus imports for other components in your app.
 @import "./styles/themes/light/light.scss";
 @import "./styles/themes/dark/dark.scss";
+@import "./styles/themes/light-sanisidro/light-sanisidro.scss";
+@import "./styles/themes/dark-sanisidro/dark-sanisidro.scss";
 
 @include mat.core();
 

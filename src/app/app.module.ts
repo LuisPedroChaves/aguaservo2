@@ -13,7 +13,8 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { appReducers } from './core/store/app.reducer';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
-import { SessionEffects } from './core/store/session.effects';
+import { SessionEffects } from './core/store/effects/session.effects';
+import { CompanyEffects } from './core/store/effects/company.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,7 @@ import { SessionEffects } from './core/store/session.effects';
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([SessionEffects]),
+    EffectsModule.forRoot([SessionEffects, CompanyEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [

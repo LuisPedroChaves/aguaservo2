@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { mergeMap, map } from 'rxjs/operators';
-import { AuthService } from '../auth/auth.service';
-import { LOGIN, SET_SESSION } from './session.actions';
+import { AuthService } from '../../auth/auth.service';
+import { LOGIN, SET_SESSION } from '../actions/session.actions';
 
 @Injectable()
 export class SessionEffects {

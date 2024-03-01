@@ -11,6 +11,7 @@ import { LogoComponent } from '../../core/components/logo/logo.component';
 import { ThemeButtonComponent } from '../../core/components/theme-button/theme-button.component';
 import { NewRoleComponent } from '../../modules/user/components/new-role/new-role.component';
 import { NewUserComponent } from '../../modules/user/components/new-user/new-user.component';
+import { CompanyButtonComponent } from '../../core/components/company-button/company-button.component';
 
 @NgModule({
   declarations: [IndexComponent, MenuComponent],
@@ -23,6 +24,7 @@ import { NewUserComponent } from '../../modules/user/components/new-user/new-use
     // components
     LogoComponent,
     ThemeButtonComponent,
+    CompanyButtonComponent,
     NewRoleComponent,
     NewUserComponent
   ],

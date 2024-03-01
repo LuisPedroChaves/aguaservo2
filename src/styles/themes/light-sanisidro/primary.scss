@@ -1,0 +1,67 @@
+$primary: #036B5D;
+$on-primary: #FFFFFF;
+
+$primary-container: #9FF2E0;
+$on-primary-container: #00201B;
+
+$primary-fixed: #9FF2E0;
+$on-primary-fixed: #00201B;
+
+$primary-fixed-dim: #84D5C4;
+$on-primary-fixed-dim: #005045;
+
+.light-sanisidro {
+  .primary {
+    color: $primary !important;
+    mat-icon {
+      color: $primary !important;
+    }
+    span {
+      color: $primary !important;
+    }
+  }
+
+  .primary-background {
+    background-color: $primary !important;
+    color: $on-primary !important;
+    mat-icon {
+      color: $on-primary !important;
+    }
+    span {
+      color: $on-primary !important;
+    }
+  }
+
+  .primary-container {
+    background-color: $primary-container !important;
+    color: $on-primary-container !important;
+    mat-icon {
+      color: $on-primary-container !important;
+    }
+    span {
+      color: $on-primary-container !important;
+    }
+  }
+
+  .primary-fixed {
+    background-color: $primary-fixed !important;
+    color: $on-primary-fixed !important;
+    mat-icon {
+      color: $on-primary-fixed !important;
+    }
+    span {
+      color: $on-primary-fixed !important;
+    }
+  }
+
+  .primary-fixed-dim {
+    background-color: $primary-fixed-dim !important;
+    color: $on-primary-fixed-dim !important;
+    mat-icon {
+      color: $on-primary-fixed-dim !important;
+    }
+    span {
+      color: $on-primary-fixed-dim !important;
+    }
+  }
+}

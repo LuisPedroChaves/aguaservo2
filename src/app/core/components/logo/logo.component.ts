@@ -1,6 +1,9 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ThemingService } from '../../services/theming.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.reducer';
+import { ICompany } from '../../models/company.model';
 
 @Component({
   selector: 'app-logo',
@@ -15,7 +18,13 @@ export class LogoComponent implements OnInit, OnDestroy {
   themeSubscription = new Subscription();
   isDark = false;
 
-  constructor(private themingService: ThemingService) {}
+  companySubscription = new Subscription();
+  currentCompany: ICompany;
+
+  constructor(
+    private themingService: ThemingService,
+    private appStore: Store<AppState>
+  ) {}
 
   ngOnInit(): void {
     this.themeSubscription = this.themingService.theme.subscribe(
@@ -27,9 +36,16 @@ export class LogoComponent implements OnInit, OnDestroy {
         }
       }
     );
+
+    this.companySubscription = this.appStore
+      .select('company')
+      .subscribe((state) => {
+        this.currentCompany = state.company;
+      });
   }
 
   ngOnDestroy(): void {
     this.themeSubscription?.unsubscribe();
+    this.companySubscription?.unsubscribe();
   }
 }

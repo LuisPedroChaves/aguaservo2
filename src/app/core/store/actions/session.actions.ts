@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ISession } from '../models/session.model';
+import { ISession } from '../../models/session.model';
 
 export const LOGIN = createAction(
   '[SESSION] Login',

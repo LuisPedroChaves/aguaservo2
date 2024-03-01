@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { ThemingService } from './core/services/theming.service';
 import { Store } from '@ngrx/store';
 import { AppState } from './core/store/app.reducer';
-import { SET_SESSION } from './core/store/session.actions';
+import { SET_SESSION } from './core/store/actions/session.actions';
 
 @Component({
   selector: 'app-root',

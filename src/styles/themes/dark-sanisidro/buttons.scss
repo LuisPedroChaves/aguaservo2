@@ -1,0 +1,116 @@
+.dark-sanisidro {
+  .filled-button {
+    background-color: $primary !important;
+    height: 40px !important;
+    mat-icon {
+      color: $on-primary !important;
+    }
+    span {
+      color: $on-primary !important;
+    }
+  }
+
+  .filled-button-tertiary {
+    background-color: $tertiary !important;
+    height: 40px !important;
+    mat-icon {
+      color: $on-tertiary !important;
+    }
+    span {
+      color: $on-tertiary !important;
+    }
+  }
+
+  .outlined-button {
+    background-color: transparent !important;
+    height: 40px !important;
+    border: 1px solid $outline !important;
+    mat-icon {
+      color: $primary !important;
+    }
+    span {
+      color: $primary !important;
+    }
+  }
+
+  .filled-tonal-button {
+    background-color: $secondary-container !important;
+    color: $on-secondary-container !important;
+    height: 40px !important;
+    mat-icon {
+      color: $on-secondary-container !important;
+    }
+  }
+
+  .filled-tonal-button-tertiary {
+    background-color: $tertiary-container !important;
+    color: $on-tertiary-container !important;
+    height: 40px !important;
+    mat-icon {
+      color: $on-tertiary-container !important;
+    }
+  }
+
+  .extended-fab {
+    background-color: $primary-container !important;
+    color: $on-primary-container !important;
+    height: 56px !important;
+    min-width: 80px !important;
+    border-radius: 16px !important;
+    font-weight: bold !important;
+    mat-icon {
+      font-weight: bold !important;
+      color: $on-primary-container !important;
+    }
+  }
+
+  .extended-fab-tertiary {
+    background-color: $tertiary-container !important;
+    color: $on-tertiary-container !important;
+    height: 56px !important;
+    min-width: 80px !important;
+    border-radius: 16px !important;
+    font-weight: bold !important;
+    mat-icon {
+      font-weight: bold !important;
+      color: $on-tertiary-container !important;
+    }
+  }
+
+  .fab-button {
+    background-color: $primary-container !important;
+    color: $on-primary-container !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 16px !important;
+    mat-icon {
+      size: 24px !important;
+      color: $on-primary-container !important;
+    }
+  }
+
+  .fab-button-tertiary {
+    background-color: $tertiary-container !important;
+    color: $on-tertiary-container !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 16px !important;
+    mat-icon {
+      size: 24px !important;
+      color: $on-tertiary-container !important;
+    }
+  }
+
+  .error-button {
+    background-color: $error-container !important;
+    color: $on-error-container !important;
+    height: 56px !important;
+    min-width: 80px !important;
+    border-radius: 16px !important;
+    font-weight: bold !important;
+    mat-icon {
+      font-weight: bold !important;
+      color: $on-error-container !important;
+    }
+  }
+}

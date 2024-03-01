@@ -1,0 +1,61 @@
+$secondary: #4A635D;
+$on-secondary: #FFFFFF;
+
+$secondary-container: #CDE8E0;
+$on-secondary-container: #06201B;
+
+$secondary-fixed: #CDE8E0;
+$on-secondary-fixed: #06201B;
+
+$secondary-fixed-dim: #B1CCC5;
+$on-secondary-fixed-dim: #334B46;
+
+.light-sanisidro {
+  .secondary {
+    color: $secondary !important;
+  }
+
+  .secondary-background {
+    background-color: $secondary !important;
+    color: $on-secondary !important;
+    mat-icon {
+      color: $on-secondary !important;
+    }
+    span {
+      color: $on-secondary !important;
+    }
+  }
+
+  .secondary-container {
+    background-color: $secondary-container !important;
+    color: $on-secondary-container !important;
+    mat-icon {
+      color: $on-secondary-container !important;
+    }
+    span {
+      color: $on-secondary-container !important;
+    }
+  }
+
+  .secondary-fixed {
+    background-color: $secondary-fixed !important;
+    color: $on-secondary-fixed !important;
+    mat-icon {
+      color: $on-secondary-fixed !important;
+    }
+    span {
+      color: $on-secondary-fixed !important;
+    }
+  }
+
+  .secondary-dim {
+    background-color: $secondary-fixed-dim !important;
+    color: $on-secondary-fixed-dim !important;
+    mat-icon {
+      color: $on-secondary-fixed-dim !important;
+    }
+    span {
+      color: $on-secondary-fixed-dim !important;
+    }
+  }
+}

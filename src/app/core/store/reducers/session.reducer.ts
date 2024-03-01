@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { LOGOUT, SET_SESSION } from './session.actions';
-import { ISession } from '../models/session.model';
+import { LOGOUT, SET_SESSION } from '../actions/session.actions';
+import { ISession } from '../../models/session.model';
 
 export interface SessionState {
   session: ISession;

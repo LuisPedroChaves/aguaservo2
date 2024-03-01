@@ -1,0 +1,6 @@
+@if (companies.length > 0) {
+<button mat-icon-button (click)="changeCompany()" class="fab-button-tertiary"
+  [matTooltip]="'Cambiar a ' + otherCompany.name" matTooltipPosition="after">
+  <mat-icon fontIcon="autorenew"></mat-icon>
+</button>
+}

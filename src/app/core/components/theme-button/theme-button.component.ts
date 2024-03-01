@@ -13,6 +13,7 @@ import { SharedModule } from '../../../shared/shared.module';
 })
 export class ThemeButtonComponent implements OnInit, OnDestroy {
   themingSubscription = new Subscription();
+  currentTheme: string;
   isDark = false;
 
   constructor(
@@ -23,9 +24,15 @@ export class ThemeButtonComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.themingSubscription = this.themingService.theme.subscribe(
       (theme: string) => {
-        if (theme === 'dark-theme') {
+        this.currentTheme = theme;
+        if (theme === 'dark-theme' || theme === 'dark-sanisidro') {
           this.isDark = true;
           this.overlay.getContainerElement().classList.add(theme);
+        } else if (theme === 'light-sanisidro') {
+          this.isDark = false;
+          this.overlay
+            .getContainerElement()
+            .classList.remove('light-sanisidro');
         } else {
           this.isDark = false;
           this.overlay.getContainerElement().classList.remove('dark-theme');
@@ -39,8 +46,24 @@ export class ThemeButtonComponent implements OnInit, OnDestroy {
   }
 
   changeTheme(): void {
-    const THEME = this.isDark ? 'light-theme' : 'dark-theme';
+    let theme = 'light-theme';
 
-    this.themingService.theme.next(THEME);
+    if (this.currentTheme === 'light-theme') {
+      theme = 'dark-theme';
+    }
+
+    if (this.currentTheme === 'dark-theme') {
+      theme = 'light-theme';
+    }
+
+    if (this.currentTheme === 'light-sanisidro') {
+      theme = 'dark-sanisidro';
+    }
+
+    if (this.currentTheme === 'dark-sanisidro') {
+      theme = 'light-sanisidro';
+    }
+
+    this.themingService.theme.next(theme);
   }
 }

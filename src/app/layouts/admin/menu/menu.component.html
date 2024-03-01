@@ -1,8 +1,12 @@
 <div class="body">
-  <div fxFlex="80px" fxLayout="column" fxLayoutGap="24px" class="surface app-menu">
+  <div fxFlex="88px" fxLayout="column" fxLayoutGap="24px" class="surface app-menu">
     <div routerLink="/" fxLayout="column" fxLayoutAlign="center center" class="pointer">
       <app-logo [width]="40"></app-logo>
-      <b>AGUASER.</b>
+      <b>{{currentCompany?.name}}</b>
+    </div>
+
+    <div fxLayoutAlign="center center">
+      <app-company-button></app-company-button>
     </div>
 
     <ngx-simplebar class="app-menu-content">
@@ -43,6 +47,7 @@
     </ngx-simplebar>
 
     <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="4px">
+
       <app-theme-button></app-theme-button>
 
       <button mat-icon-button [matMenuTriggerFor]="menu" fxLayoutAlign="center center" matTooltip="Usuario"

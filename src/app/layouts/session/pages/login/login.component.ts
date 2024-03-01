@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from '../../../../core/store/app.reducer';
 import { Router } from '@angular/router';
-import { LOGIN } from '../../../../core/store/session.actions';
+import { LOGIN } from '../../../../core/store/actions/session.actions';
 
 @Component({
   selector: 'app-login',

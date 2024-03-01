@@ -7,8 +7,9 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../../core/store/app.reducer';
 import { DrawerStore } from '../store/drawer.reducer';
 import { Router } from '@angular/router';
-import { LOGOUT } from '../../../core/store/session.actions';
+import { LOGOUT } from '../../../core/store/actions/session.actions';
 import { CHANGE_MENU_DRAWER } from '../store/drawer.actions';
+import { ICompany } from '../../../core/models/company.model';
 
 @Component({
   selector: 'app-menu',
@@ -23,6 +24,9 @@ export class MenuComponent implements OnInit, OnDestroy {
   session: ISession = null;
   role: IRole = null;
   module: IRoleModule = null;
+
+  companySubscription = new Subscription();
+  currentCompany: ICompany;
 
   constructor(
     private appStore: Store<AppState>,
@@ -47,11 +51,18 @@ export class MenuComponent implements OnInit, OnDestroy {
           this.role = this.session.user?.role;
         }
       });
+
+    this.companySubscription = this.appStore
+      .select('company')
+      .subscribe((state) => {
+        this.currentCompany = state.company;
+      });
   }
 
   ngOnDestroy(): void {
     this.drawerSubscription?.unsubscribe();
     this.sessionSubscription?.unsubscribe();
+    this.companySubscription?.unsubscribe();
   }
 
   logout(): void {

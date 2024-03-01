@@ -1,0 +1,26 @@
+$background: #F5FBF7;
+$on-background: #171D1B;
+
+$outline: #6F7976;
+$outline-variant: #BEC9C5;
+
+.light-sanisidro {
+  .background {
+    background-color: $background !important;
+    color: $on-background !important;
+    mat-icon {
+      color: $on-background !important;
+    }
+    span {
+      color: $on-background !important;
+    }
+  }
+
+  .outline {
+    color: $outline !important;
+  }
+
+  .outline-variant {
+    color: $outline-variant !important;
+  }
+}
