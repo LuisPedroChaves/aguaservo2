@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ICompany } from '../../models/company.model';
+import { ICompany } from '../../models/project/company.model';
 
 export const READ_COMPANIES = createAction('[COMPANY], Leer empresas');
 

@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { UserStore } from '../../store/reducers/user.reducer';
 import { SET_USER } from '../../store/actions/user.actions';
-import { IUser } from '../../../../core/models/user.model';
+import { IUser } from '../../../../core/models/user/user.model';
 import { FilterPipe } from '../../../../shared/pipes/filter.pipe';
 import { OPEN_DRAWER1 } from '../../../../layouts/admin/store/drawer.actions';
 

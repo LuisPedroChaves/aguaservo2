@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { IUser } from '../../../../core/models/user.model';
+import { IUser } from '../../../../core/models/user/user.model';
 
 export const READ_USERS = createAction('[USER], Leer usuarios');
 

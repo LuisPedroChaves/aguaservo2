@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SharedModule } from '../../../shared/shared.module';
-import { ICompany } from '../../models/company.model';
+import { ICompany } from '../../models/project/company.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import {
@@ -72,6 +72,6 @@ export class CompanyButtonComponent implements OnInit, OnDestroy {
     const THEME = this.isDark ? `dark-${theme}` : `light-${theme}`;
     this.themingService.theme.next(THEME);
 
-    this.snackBarService.show('SUCCESS', 'Ahora estas en ' + this.currentCompany.name, 1000);
+    this.snackBarService.show('SUCCESS', this.currentCompany.name, 1000);
   }
 }

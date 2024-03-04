@@ -6,7 +6,7 @@ import {
   SET_USER,
   SET_USERS,
 } from '../actions/user.actions';
-import { IUser } from '../../../../core/models/user.model';
+import { IUser } from '../../../../core/models/user/user.model';
 import { AppState } from '../../../../core/store/app.reducer';
 
 export interface UserState {

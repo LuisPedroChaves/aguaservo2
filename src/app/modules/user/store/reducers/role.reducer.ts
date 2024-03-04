@@ -6,7 +6,7 @@ import {
   SET_ROLE,
   SET_ROLES,
 } from '../actions/role.actions';
-import { IRole } from '../../../../core/models/role.model';
+import { IRole } from '../../../../core/models/user/role.model';
 import { AppState } from '../../../../core/store/app.reducer';
 
 export interface RoleState {

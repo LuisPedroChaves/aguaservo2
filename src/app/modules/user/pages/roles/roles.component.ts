@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { RoleStore } from '../../store/reducers/role.reducer';
 import { SET_ROLE } from '../../store/actions/role.actions';
-import { IRole } from '../../../../core/models/role.model';
+import { IRole } from '../../../../core/models/user/role.model';
 import { FilterPipe } from '../../../../shared/pipes/filter.pipe';
 import { OPEN_DRAWER1 } from '../../../../layouts/admin/store/drawer.actions';
 

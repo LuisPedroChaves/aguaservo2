@@ -6,9 +6,15 @@
     </div>
 
     <div fxLayoutGap="8px">
-      <button mat-flat-button routerLink="/users" #users="routerLinkActive" routerLinkActive="filled-button-tertiary"
+      <button mat-flat-button routerLink="/projects" #projects="routerLinkActive" routerLinkActive="filled-button"
         [routerLinkActiveOptions]="{ exact: true }"
-        [ngClass]="users.isActive ? 'filled-button-tertiary' : 'filled-tonal-button-tertiary'">
+        [ngClass]="projects.isActive ? 'filled-button' : 'filled-tonal-button'">
+        <mat-icon>apartment</mat-icon>
+        Proyectos
+      </button>
+      <button mat-flat-button routerLink="/users" #users="routerLinkActive" routerLinkActive="filled-button"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [ngClass]="users.isActive ? 'filled-button' : 'filled-tonal-button'">
         <mat-icon>persons</mat-icon>
         Usuarios
       </button>

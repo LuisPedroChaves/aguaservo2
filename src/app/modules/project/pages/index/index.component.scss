@@ -1,0 +1,14 @@
+@use "@angular/material" as mat;
+
+mat-card {
+  @include mat.elevation(0);
+}
+
+.grid-content {
+  height: calc(100vh - 104px) !important;
+  height: calc(100svh - 104px) !important;
+  .list {
+    height: calc(100vh - 104px);
+    height: calc(100svh - 104px);
+  }
+}

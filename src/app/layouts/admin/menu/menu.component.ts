@@ -2,14 +2,14 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
 import { ISession } from '../../../core/models/session.model';
-import { IRole, IRoleModule } from '../../../core/models/role.model';
+import { IRole, IRoleModule } from '../../../core/models/user/role.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../core/store/app.reducer';
 import { DrawerStore } from '../store/drawer.reducer';
 import { Router } from '@angular/router';
 import { LOGOUT } from '../../../core/store/actions/session.actions';
 import { CHANGE_MENU_DRAWER } from '../store/drawer.actions';
-import { ICompany } from '../../../core/models/company.model';
+import { ICompany } from '../../../core/models/project/company.model';
 
 @Component({
   selector: 'app-menu',

@@ -11,7 +11,7 @@ import {
   UPDATE_ROLE,
 } from '../../store/actions/role.actions';
 import { SharedModule } from '../../../../shared/shared.module';
-import { IModule, IRole, RoleType } from '../../../../core/models/role.model';
+import { IModule, IRole, RoleType } from '../../../../core/models/user/role.model';
 import { SnackBarService } from '../../../../core/services/snack-bar.service';
 import { CLOSE_DRAWER1 } from '../../../../layouts/admin/store/drawer.actions';
 import { ConfirmationDialogComponent } from '../../../../core/components/confirmation-dialog/confirmation-dialog.component';

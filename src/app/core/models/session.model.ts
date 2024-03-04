@@ -1,4 +1,4 @@
-import { IUser } from '../models/user.model';
+import { IUser } from './user/user.model';
 
 export interface ISession {
   id: string;

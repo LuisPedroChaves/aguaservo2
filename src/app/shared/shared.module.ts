@@ -23,6 +23,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 // Npm Modules
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -57,6 +58,7 @@ const MODULES = [
   MatProgressBarModule,
   MatRippleModule,
   MatSnackBarModule,
+  MatSlideToggleModule,
   // Npm Modules
   SimplebarAngularModule,
   FlexLayoutModule,

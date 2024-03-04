@@ -37,6 +37,9 @@
       <mat-drawer-content>
 
         <!-- components -->
+        @if (component1 === 'NEW_PROJECT') {
+        <app-new-project></app-new-project>
+        }
         @if (component1 === 'NEW_ROLE') {
         <app-new-role></app-new-role>
         }

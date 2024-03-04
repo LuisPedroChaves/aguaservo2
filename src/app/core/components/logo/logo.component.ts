@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { ThemingService } from '../../services/theming.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
-import { ICompany } from '../../models/company.model';
+import { ICompany } from '../../models/project/company.model';
 
 @Component({
   selector: 'app-logo',

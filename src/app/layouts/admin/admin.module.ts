@@ -12,6 +12,7 @@ import { ThemeButtonComponent } from '../../core/components/theme-button/theme-b
 import { NewRoleComponent } from '../../modules/user/components/new-role/new-role.component';
 import { NewUserComponent } from '../../modules/user/components/new-user/new-user.component';
 import { CompanyButtonComponent } from '../../core/components/company-button/company-button.component';
+import { NewProjectComponent } from '../../modules/project/components/new-project/new-project.component';
 
 @NgModule({
   declarations: [IndexComponent, MenuComponent],
@@ -26,7 +27,8 @@ import { CompanyButtonComponent } from '../../core/components/company-button/com
     ThemeButtonComponent,
     CompanyButtonComponent,
     NewRoleComponent,
-    NewUserComponent
+    NewUserComponent,
+    NewProjectComponent
   ],
 })
 export class AdminModule {}

@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 
 import { AppState } from '../app.reducer';
-import { ICompany } from '../../models/company.model';
+import { ICompany } from '../../models/project/company.model';
 import { SET_COMPANIES, SET_COMPANY } from '../actions/company.actions';
 
 export interface CompanyState {

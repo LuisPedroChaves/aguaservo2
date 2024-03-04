@@ -1,0 +1,96 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="newProject" autocomplete="off" class="surface drawer-form">
+
+  <mat-toolbar fxLayoutGap="8px" class="drawer-header">
+
+    @if (project) {
+    <span>Editar proyecto</span>
+    }
+    @else {
+    <span>Nuevo proyecto</span>
+    }
+
+    <span fxFlex></span>
+
+    <button mat-icon-button (click)="closeDrawer1()" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </mat-toolbar>
+
+  <div fxLayout="row" fxLayoutAlign="center center" class="drawer-content">
+
+    <div fxLayout="column" style="width: 100%;" fxLayoutGap="12px">
+
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Código</mat-label>
+        <input matInput type="text" formControlName="code" placeholder="Ej. B1" />
+        <mat-icon matSuffix>qr_code</mat-icon>
+        @if (newProject.get('code')?.hasError('required')) {
+        <mat-error>
+          *El código es requerido.
+        </mat-error>
+        }
+        @if (newProject.get('code')?.hasError('cannotContainSpace')) {
+        <mat-error>
+          *No se permiten espacios en blanco.
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <textarea matInput type="text" formControlName="name" placeholder="Ej. BOUGAMBILIAS I"></textarea>
+        @if (newProject.get('name')?.hasError('required')) {
+        <mat-error>
+          *El nombre es requerido
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Cuota</mat-label>
+        <span matTextPrefix>Q. &nbsp;</span>
+        <input matInput type="number" formControlName="fee">
+        @if (newProject.get('fee').value) {
+        <button matSuffix mat-icon-button (click)="newProject.get('fee').setValue(null);">
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+        @if (newProject.get('fee')?.hasError('required')) {
+        <mat-error>
+          *La cuota es requerida
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <div fxLayout="row">
+        <mat-label> Proyecto activo </mat-label>
+        <span fxFlex></span>
+        <mat-slide-toggle formControlName="isActive" color="primary"></mat-slide-toggle>
+      </div>
+
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+
+  @if (project) {
+  <div class="drawer-actions" fxLayoutGap="8px">
+    <button mat-flat-button type="submit" class="filled-button">
+      Guardar
+    </button>
+    <button mat-stroked-button (click)="deleteProject()" type="button" class="outlined-button">
+      Eliminar
+    </button>
+  </div>
+  }
+  @else {
+  <div class="drawer-actions" fxLayoutGap="8px">
+    <button mat-flat-button type="submit" class="filled-button">
+      Guardar
+    </button>
+  </div>
+  }
+
+</form>

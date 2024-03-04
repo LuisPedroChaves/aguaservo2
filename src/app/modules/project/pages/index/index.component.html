@@ -1,0 +1,75 @@
+<ngx-simplebar class="index-desktop surface-container">
+
+  <header fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
+    <div>
+      <span class="mat-headline-4"><b>Proyectos</b></span>
+    </div>
+
+    <span fxFlex></span>
+
+    <mat-form-field appearance="outline" class="no-hint">
+      <input #input matInput (keyup)="applyFilter($event)" placeholder="Buscar...">
+      @if (!input.value) {
+      <mat-icon matSuffix>search</mat-icon>
+      }
+      @if (input.value) {
+      <button matSuffix mat-icon-button (click)="input.value = ''; resetFilter('')">
+        <mat-icon>close</mat-icon>
+      </button>
+      }
+    </mat-form-field>
+
+    <div>
+      <span class="mat-headline-6">{{ filterProjects.length }} total</span>
+    </div>
+
+  </header>
+
+  <button mat-flat-button class="extended-fab grid-floating-button active-elevation"
+    (click)="openDrawer1('390px', 'NEW_PROJECT', null)">
+    <mat-icon>add</mat-icon>
+    Proyecto
+  </button>
+
+  <div class="grid-content">
+
+    <ngx-simplebar class="list">
+
+      <div fxLayout="row wrap" fxLayoutGap="8px grid" class="grid">
+
+        @for (project of filterProjects; track project) {
+        <div fxFlex.gt-lg="33" fxFlex.lg="33" fxFlex.md="50" fxFlex.sm="50" fxFlex.lt-sm="100">
+          <mat-card class="outlined-card">
+            <mat-card-header>
+              <mat-icon matCardAvatar fontIcon="apartment" color="primary"></mat-icon>
+              <mat-card-title>{{ project.name }}</mat-card-title>
+              @if (project.isActive) {
+              <mat-card-subtitle class="primary">ACTIVO</mat-card-subtitle>
+              }
+              @else {
+              <mat-card-subtitle class="error">INACTIVO</mat-card-subtitle>
+              }
+            </mat-card-header>
+            <mat-card-content fxLayoutAlign="center center">
+              <p class="mat-subtitle-1">
+                Q. {{ project.fee | number: '.2' }}
+              </p>
+            </mat-card-content>
+            <mat-card-actions fxLayoutGap="8px">
+              <button mat-flat-button (click)="openDrawer1('390px', 'NEW_PROJECT', project)" color="primary"
+                class="filled-tonal-button">
+                Editar
+              </button>
+              <span fxFlex></span>
+              <button mat-icon-button (click)="deleteProject(project)" color="primary">
+                <mat-icon fontIcon="delete"></mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        }
+      </div>
+      <br>
+    </ngx-simplebar>
+  </div>
+</ngx-simplebar>

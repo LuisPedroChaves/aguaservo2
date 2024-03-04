@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
 import { SnackBarService } from '../../../core/services/snack-bar.service';
-import { IUser } from '../../../core/models/user.model';
+import { IUser } from '../../../core/models/user/user.model';
 
 @Injectable({
   providedIn: 'root',

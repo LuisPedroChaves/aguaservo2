@@ -15,8 +15,8 @@ import {
   cannotContainSpace,
   checkPasswords,
 } from '../../../../core/validators/custom.validators';
-import { IRole } from '../../../../core/models/role.model';
-import { IUser } from '../../../../core/models/user.model';
+import { IRole } from '../../../../core/models/user/role.model';
+import { IUser } from '../../../../core/models/user/user.model';
 import { CLOSE_DRAWER1 } from '../../../../layouts/admin/store/drawer.actions';
 import { ConfirmationDialogComponent } from '../../../../core/components/confirmation-dialog/confirmation-dialog.component';
 

@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { IRole } from '../../../../core/models/role.model';
+import { IRole } from '../../../../core/models/user/role.model';
 
 export const READ_ROLES = createAction('[ROLE], Leer roles');
 

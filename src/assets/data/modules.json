@@ -2,6 +2,17 @@
   {
     "roleType": "admin",
     "selected": false,
+    "name": "projects",
+    "label": "Proyectos",
+    "type": "link",
+    "icon": "apartment",
+    "permissions": [],
+    "permissionsCatalog": [],
+    "options": []
+  },
+  {
+    "roleType": "admin",
+    "selected": false,
     "name": "users",
     "label": "Usuarios",
     "type": "sub",
