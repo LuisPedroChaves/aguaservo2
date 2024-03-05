@@ -23,7 +23,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 // Npm Modules
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -31,6 +31,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FilterPipe } from './pipes/filter.pipe';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { getSpanishPaginatorIntl } from './spanish-paginator-intl';
+import { EmptyComponent } from './components/empty/empty.component';
 
 const MODULES = [
   CommonModule,
@@ -66,9 +67,9 @@ const MODULES = [
 ];
 
 @NgModule({
-  declarations: [FilterPipe],
+  declarations: [FilterPipe, EmptyComponent],
   imports: [...MODULES],
-  exports: [...MODULES],
+  exports: [...MODULES, EmptyComponent],
   providers: [
     FilterPipe,
     { provide: MatPaginatorIntl, useValue: getSpanishPaginatorIntl() },

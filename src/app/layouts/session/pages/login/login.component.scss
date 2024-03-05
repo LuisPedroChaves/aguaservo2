@@ -1,4 +1,10 @@
 mat-card {
-  margin-top: 24px;
   margin-bottom: 12px;
+}
+
+mat-toolbar {
+  background-color: transparent !important;
+  .logosize {
+    font-size: 30px;
+  }
 }

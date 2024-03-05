@@ -5,7 +5,9 @@ export const environment = {
   production: false,
 
   /* API Services Config */
-  root: 'http://localhost:3000',
+  // root: 'http://localhost:3000',
+  root: 'https://backend-aguaservo.azurewebsites.net',
+
 
   /* Version Config */
   version: '1.0',

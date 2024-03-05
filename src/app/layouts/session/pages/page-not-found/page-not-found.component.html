@@ -1,18 +1,19 @@
-<mat-card class="surface active-elevation">
+<div fxLayoutAlign="center center">
+  <div fxFlex.md="70" fxFlex.lg="50" fxFlex.gt-lg="50">
+    <mat-card class="surface active-elevation">
 
-  <mat-card-header>
-    <span fxFlex></span>
-    <app-theme-button></app-theme-button>
-  </mat-card-header>
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px" class="cardContent">
 
-  <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px" class="cardContent">
-    <p class="mat-headline-4">404! Ups...</p>
-    <p class="mat-headline-5">La página no ha sido encontrada</p>
+        <img src="../../../../assets/img/404.svg" alt="">
 
-    <button mat-flat-button [routerLink]="['/']" routerLinkActive="router-link-active" color="primary"
-      class="filled-button radius">
-      <mat-icon fontIcon="login"></mat-icon>
-      Inicio
-    </button>
-  </mat-card-content>
-</mat-card>
+        <p class="mat-headline-5">La página no ha sido encontrada</p>
+
+        <button mat-flat-button [routerLink]="['/']" routerLinkActive="router-link-active" color="primary"
+          class="filled-button radius">
+          <mat-icon fontIcon="login"></mat-icon>
+          Inicio
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

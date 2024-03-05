@@ -1,47 +1,54 @@
 <mat-card class="surface active-elevation">
-  <mat-card-header>
-
-    <mat-card-title>Inicio de sesión</mat-card-title>
-    <mat-card-subtitle>Administración</mat-card-subtitle>
-
-    <span fxFlex></span>
-    <app-theme-button></app-theme-button>
-
-  </mat-card-header>
   <mat-card-content>
-    <br>
-    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
 
-      <mat-form-field fxFill appearance="outline">
-        <mat-label>Usuario</mat-label>
-        <input type="text" matInput formControlName="username" placeholder="Usuario">
-        <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
-          *Nombre de usuario requerido
-        </mat-error>
-        <mat-icon matSuffix>user</mat-icon>
-      </mat-form-field>
+    <div fxFlex.md="60" fxFlex.lg="60" fxFlex.gt-lg="60">
+      <img src="../../../../assets/img/login.svg" alt="">
+    </div>
 
-      <mat-form-field fxFill appearance="outline">
-        <mat-label>Contraseña</mat-label>
-        <input type="password" matInput formControlName="password" placeholder="**********">
-        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-          *Contraseña es requerida
-        </mat-error>
-        <mat-icon matSuffix>password</mat-icon>
-      </mat-form-field>
+    <form fxFlex (ngSubmit)="onSubmit()" [formGroup]="loginForm" fxLayoutAlign="center center">
+      <div fxLayout="column">
 
-      <mat-checkbox formControlName="remember" color="primary">Recuérdame</mat-checkbox>
+        <div fxLayoutAlign="center center" fxLayoutGap="8px">
+          <app-logo [width]="60"></app-logo>
+        </div>
+        <mat-toolbar fxLayoutAlign="center center" fxLayoutGap="8px">
+          <span class="logosize">AGUASERVO</span>
+        </mat-toolbar>
 
-      <br>
+        <br>
 
-      <div fxLayoutAlign="center center">
-        <button mat-flat-button type="submit" color="primary" class="filled-button radius">
-          <mat-icon fontIcon="login"></mat-icon>
-          Iniciar sesión
-        </button>
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input type="text" matInput formControlName="username" placeholder="Usuario">
+          <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+            *Nombre de usuario requerido
+          </mat-error>
+          <mat-icon matSuffix>user</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input type="password" matInput formControlName="password" placeholder="**********">
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            *Contraseña es requerida
+          </mat-error>
+          <mat-icon matSuffix>password</mat-icon>
+        </mat-form-field>
+
+        <div>
+          <mat-checkbox formControlName="remember" color="primary">Recuérdame</mat-checkbox>
+        </div>
+
+        <br>
+
+        <div fxLayoutAlign="center center">
+          <button fxFill mat-flat-button type="submit" color="primary" class="filled-button radius">
+            <mat-icon fontIcon="login"></mat-icon>
+            Iniciar sesión
+          </button>
+        </div>
       </div>
     </form>
-
   </mat-card-content>
-
 </mat-card>
+<p class="mat-body-1" fxLayoutAlign="center center">Copyright © 2024 APPLITECH SOFTWARE SOLUTIONS. <span class="mat-caption"> Todos Los Derechos Reservados.</span></p>

@@ -37,6 +37,7 @@ export class IndexComponent implements OnInit, OnDestroy {
       .select('company')
       .subscribe((state) => {
         if (state.company) {
+          this.filterProjects = [];
           this.projectStore.dispatch(
             READ_PROJECTS({ idCompany: state.company._id })
           );
