@@ -33,6 +33,18 @@
     }
   }
 
+  .outlined-button-tertiary {
+    background-color: transparent !important;
+    height: 40px !important;
+    border: 1px solid $outline !important;
+    mat-icon {
+      color: $tertiary !important;
+    }
+    span {
+      color: $tertiary !important;
+    }
+  }
+
   .filled-tonal-button {
     background-color: $secondary-container !important;
     color: $on-secondary-container !important;

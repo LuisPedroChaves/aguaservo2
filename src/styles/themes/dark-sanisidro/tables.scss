@@ -3,4 +3,7 @@
     background-color: $secondary-container !important;
     color: $on-secondary-container !important;
   }
+  .mat-mdc-table .mat-mdc-row:hover {
+    background-color: $surface-container !important;
+  }
 }

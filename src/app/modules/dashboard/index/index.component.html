@@ -5,17 +5,19 @@
       <span class="mat-headline-4"><b>Dashboard</b></span>
     </div>
 
+    <span fxFlex></span>
+
     <div fxLayoutGap="8px">
-      <button mat-flat-button routerLink="/projects" #projects="routerLinkActive" routerLinkActive="filled-button"
-        [routerLinkActiveOptions]="{ exact: true }"
-        [ngClass]="projects.isActive ? 'filled-button' : 'filled-tonal-button'">
+      <button mat-flat-button routerLink="/customers" class="filled-tonal-button">
+        <mat-icon>persons</mat-icon>
+        Clientes
+      </button>
+      <button mat-flat-button routerLink="/projects" class="filled-tonal-button">
         <mat-icon>apartment</mat-icon>
         Proyectos
       </button>
-      <button mat-flat-button routerLink="/users" #users="routerLinkActive" routerLinkActive="filled-button"
-        [routerLinkActiveOptions]="{ exact: true }"
-        [ngClass]="users.isActive ? 'filled-button' : 'filled-tonal-button'">
-        <mat-icon>persons</mat-icon>
+      <button mat-flat-button routerLink="/users" class="filled-tonal-button">
+        <mat-icon>admin_panel_settings</mat-icon>
         Usuarios
       </button>
     </div>

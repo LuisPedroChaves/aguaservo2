@@ -1,0 +1,190 @@
+<button mat-flat-button (click)="openDrawer1('390px', 'NEW_CUSTOMER', null)"
+  class="extended-fab table-floating-button active-elevation">
+  <mat-icon> add </mat-icon>
+  Cliente
+</button>
+
+<div fxLayout="column" class="table-content">
+
+  <form [formGroup]="filters" autocomplete="off">
+    <header fxLayout="column">
+
+      <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center start">
+        <button mat-icon-button (click)="changeFilters()"
+          [ngClass]="{'outlined-button-tertiary': !showFilters, 'filled-tonal-button-tertiary': showFilters}" matTooltip="Filtros">
+          @if (showFilters) {
+          <mat-icon>expand_less</mat-icon>
+          }
+          @else {
+          <mat-icon>expand_more</mat-icon>
+          }
+        </button>
+
+        <mat-form-field appearance="outline" class="no-hint">
+          <input matInput [formControl]="search" placeholder="Buscar cliente...">
+          @if (!search.value) {
+          <mat-icon matSuffix>search</mat-icon>
+          }
+          @if (search.value) {
+          <button matSuffix mat-icon-button (click)="search.setValue('')">
+            <mat-icon>close</mat-icon>
+          </button>
+          }
+        </mat-form-field>
+
+        <mat-form-field fxFlex="400px" appearance="outline" class="no-hint">
+          <mat-label>Proyecto</mat-label>
+          <input type="text" matInput formControlName="project" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayProject">
+            @for (project of filteredProjects | async; track project) {
+            <mat-option [value]="project">
+              {{project.code}} - {{ project.name }}
+            </mat-option>
+            }
+          </mat-autocomplete>
+          @if (filters.get('project')?.value) {
+          <button matSuffix mat-icon-button (click)="filters.get('project').setValue(null);">
+            <mat-icon>close</mat-icon>
+          </button>
+          }
+        </mat-form-field>
+
+        <span fxFlex></span>
+
+        <mat-paginator [length]="totalCustomers" [pageSize]="filterCustomers.size" [pageSizeOptions]="[20, 30, 50, 100]"
+          showFirstLastButtons="true">
+        </mat-paginator>
+      </div>
+
+      @if (showFilters) {
+      <div fxLayout="row" fxLayoutGap="8px" class="filters">
+
+        <button mat-flat-button (click)="changeIsBuild()"
+          [ngClass]="{'outlined-button': !filterCustomers.isBuild, 'filled-tonal-button': filterCustomers.isBuild}">
+          <mat-icon>construction</mat-icon>
+          Serv. por construcción
+        </button>
+
+        <button mat-flat-button (click)="changeTempSuspended()"
+          [ngClass]="{'outlined-button': !filterCustomers.tempSuspended, 'filled-tonal-button': filterCustomers.tempSuspended}">
+          <mat-icon>schedule</mat-icon>
+          Susp. temporalmente
+        </button>
+
+        <button mat-flat-button (click)="changeIsSuspended()"
+          [ngClass]="{'outlined-button': !filterCustomers.isSuspended, 'filled-tonal-button': filterCustomers.isSuspended}">
+          <mat-icon>block</mat-icon>
+          Serv. suspendido
+        </button>
+      </div>
+      }
+    </header>
+  </form>
+
+  <ngx-simplebar #componentRef class="surface" [ngClass]="{table: !showFilters, 'table-filters': showFilters}">
+
+    <table mat-table class="surface" [dataSource]="dataSource">
+
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef> Código </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.code}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.name}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+        <td mat-cell *matCellDef="let element">
+          @if (element.phone !== '0') {
+          {{element.phone}}
+          }
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="credit">
+        <th mat-header-cell *matHeaderCellDef> Cargos (Q.) </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.credit | number: '.2'}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="debit">
+        <th mat-header-cell *matHeaderCellDef> Abonos (Q.) </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.debit | number: '.2'}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="balance">
+        <th mat-header-cell *matHeaderCellDef> Balance (Q.) </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.credit - element.debit | number: '.2'}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          @if (element.isBuild && !element.isSuspended && !element.tempSuspended) {
+          <span class="primary" fxLayoutAlign="center center">
+            <mat-icon fontIcon="construction" matTooltip="Servicio por construcción"></mat-icon>
+          </span>
+          }
+          @else if (element.isSuspended && !element.tempSuspended) {
+          <span class="error" fxLayoutAlign="center center">
+            <mat-icon fontIcon="block" matTooltip="Servicio suspendido"></mat-icon>
+          </span>
+          }
+          @else if (element.tempSuspended) {
+          <span class="tertiary" fxLayoutAlign="center center">
+            <mat-icon fontIcon="schedule" matTooltip="Suspendido temporalmente"></mat-icon>
+          </span>
+          }
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element">
+
+          <!-- <button mat-icon-button (click)="openSideDrawer('390px', 'CUSTOMER_DETAILS', element)">
+            <mat-icon>visibility</mat-icon>
+          </button> -->
+
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu">
+
+            <button mat-menu-item (click)="openDrawer1('600px', 'NEW_CUSTOMER', element)">
+              <mat-icon>edit</mat-icon>
+              <span> Editar </span>
+            </button>
+
+            <!-- <button mat-menu-item (click)="deleteCustomer(element)">
+              <mat-icon>delete</mat-icon>
+              <span> Eliminar </span>
+            </button> -->
+          </mat-menu>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr class="filter" *matNoDataRow>
+        <td colspan="8">
+          <app-empty message="No existen coincidencias..."></app-empty>
+        </td>
+      </tr>
+    </table>
+  </ngx-simplebar>
+</div>

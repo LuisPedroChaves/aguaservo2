@@ -1,4 +1,24 @@
 {
     "appService.defaultWebAppToDeploy": "/subscriptions/56fe1ae5-f66a-4d7d-ab34-b3986dd85bc3/resourceGroups/Applitech/providers/Microsoft.Web/sites/aguaservo2",
-    "appService.deploySubpath": "dist/aguaservo2/browser"
+    "appService.deploySubpath": "dist/aguaservo2/browser",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#c0e3f9",
+        "activityBar.background": "#c0e3f9",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#f16dbe",
+        "activityBarBadge.foreground": "#15202b",
+        "commandCenter.border": "#15202b99",
+        "sash.hoverBorder": "#c0e3f9",
+        "statusBar.background": "#91cef5",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#62b9f1",
+        "statusBarItem.remoteBackground": "#91cef5",
+        "statusBarItem.remoteForeground": "#15202b",
+        "titleBar.activeBackground": "#91cef5",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#91cef599",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#91CEF5"
 }

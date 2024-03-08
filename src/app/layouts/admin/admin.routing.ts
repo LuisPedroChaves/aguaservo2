@@ -15,6 +15,13 @@ export const AdminRoutes: Routes = [
           ),
       },
       {
+        path: 'customers',
+        loadChildren: () =>
+          import('../../modules/customer/customer.module').then(
+            (m) => m.CustomerModule
+          ),
+      },
+      {
         path: 'projects',
         loadChildren: () =>
           import('../../modules/project/project.module').then(

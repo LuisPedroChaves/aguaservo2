@@ -39,9 +39,9 @@ export class CompanyButtonComponent implements OnInit, OnDestroy {
       .subscribe((state) => {
         this.companies = state.companies;
         this.currentCompany = state.company;
-        this.otherCompany = this.companies.filter(
-          (c) => c._id !== this.currentCompany._id
-        )[0];
+        this.otherCompany = {
+          ...this.companies.filter((c) => c._id !== this.currentCompany._id)[0],
+        };
       });
 
     if (this.companies.length === 0) {

@@ -2,27 +2,26 @@
 
   <header fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="start center">
     <div>
-      <span class="mat-headline-4"><b>Usuarios</b></span>
+      <span class="mat-headline-4"><b>Clientes</b></span>
     </div>
 
     <div fxLayoutGap="8px">
-      <button mat-flat-button routerLink="/users" #users="routerLinkActive" routerLinkActive="filled-button-tertiary"
+      <button mat-flat-button routerLink="/customers" #customers="routerLinkActive" routerLinkActive="filled-button-tertiary"
         [routerLinkActiveOptions]="{ exact: true }"
-        [ngClass]="users.isActive ? 'filled-button-tertiary' : 'filled-tonal-button-tertiary'">
+        [ngClass]="customers.isActive ? 'filled-button-tertiary' : 'filled-tonal-button-tertiary'">
         <mat-icon>home</mat-icon>
         Inicio
       </button>
 
-      <button mat-flat-button routerLink="/users/roles" #roles="routerLinkActive"
+      <!-- <button mat-flat-button routerLink="/users/roles" #roles="routerLinkActive"
         routerLinkActive="filled-button-tertiary"
         [ngClass]="roles.isActive ? 'filled-button-tertiary' : 'filled-tonal-button-tertiary'">
         <mat-icon>admin_panel_settings</mat-icon>
         Roles
-      </button>
+      </button> -->
     </div>
 
   </header>
 
   <router-outlet></router-outlet>
-
 </ngx-simplebar>

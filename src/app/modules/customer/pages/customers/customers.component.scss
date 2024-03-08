@@ -1,0 +1,57 @@
+.filters {
+  margin: 4px 0px 4px 0px;
+  button {
+    border-radius: 8px !important;
+  }
+}
+
+.table-filters {
+  height: calc(100vh - 224px) !important;
+  height: calc(100svh - 224px) !important;
+  width: 100% !important;
+  border-radius: 24px !important;
+  overflow: auto !important;
+}
+
+.mat-column-code {
+  min-width: 122px;
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+  text-align: center;
+}
+
+.mat-column-name {
+  text-align: left;
+}
+
+.mat-column-phone {
+  text-align: left;
+}
+
+.mat-column-credit {
+  min-width: 112px;
+  text-align: right;
+  font-style: italic;
+}
+
+.mat-column-debit {
+  min-width: 112px;
+  text-align: right;
+  font-style: italic;
+}
+
+.mat-column-balance {
+  min-width: 112px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.mat-column-state {
+  text-align: left;
+  padding: 0px 0px 0px 0px !important;
+}
+
+.mat-column-actions {
+  min-width: 112px;
+  text-align: center;
+}

@@ -24,6 +24,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatChipsModule} from '@angular/material/chips';
 // Npm Modules
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -60,6 +63,9 @@ const MODULES = [
   MatRippleModule,
   MatSnackBarModule,
   MatSlideToggleModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatChipsModule,
   // Npm Modules
   SimplebarAngularModule,
   FlexLayoutModule,

@@ -2,6 +2,26 @@
   {
     "roleType": "admin",
     "selected": false,
+    "name": "customers",
+    "label": "Clientes",
+    "type": "sub",
+    "icon": "people",
+    "permissions": [],
+    "permissionsCatalog": [],
+    "options": [
+      {
+        "selected": false,
+        "name": "customers",
+        "label": "Clientes",
+        "url": "customers",
+        "permissions": [],
+        "permissionsCatalog": []
+      }
+    ]
+  },
+  {
+    "roleType": "admin",
+    "selected": false,
     "name": "projects",
     "label": "Proyectos",
     "type": "link",
@@ -16,7 +36,7 @@
     "name": "users",
     "label": "Usuarios",
     "type": "sub",
-    "icon": "person",
+    "icon": "admin_panel_settings",
     "permissions": [],
     "permissionsCatalog": [],
     "options": [
