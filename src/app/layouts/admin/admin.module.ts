@@ -13,6 +13,7 @@ import { NewRoleComponent } from '../../modules/user/components/new-role/new-rol
 import { NewUserComponent } from '../../modules/user/components/new-user/new-user.component';
 import { CompanyButtonComponent } from '../../core/components/company-button/company-button.component';
 import { NewProjectComponent } from '../../modules/project/components/new-project/new-project.component';
+import { NewCustomerComponent } from '../../modules/customer/components/new-customer/new-customer.component';
 
 @NgModule({
   declarations: [IndexComponent, MenuComponent],
@@ -28,7 +29,8 @@ import { NewProjectComponent } from '../../modules/project/components/new-projec
     CompanyButtonComponent,
     NewRoleComponent,
     NewUserComponent,
-    NewProjectComponent
+    NewProjectComponent,
+    NewCustomerComponent
   ],
 })
 export class AdminModule {}

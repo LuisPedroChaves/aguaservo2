@@ -85,15 +85,19 @@ export class CustomersComponent implements OnInit, OnDestroy {
       .select('company')
       .subscribe((state) => {
         if (state.company) {
+          this.customerStore.dispatch(
+            SET_CUSTOMER_FILTERS({
+              filters: {
+                ...this.filterCustomers,
+                company: state.company._id,
+              },
+            })
+          );
+
           this.dataSource = new MatTableDataSource<ICustomer>([]);
           this.projectStore.dispatch(
             READ_PROJECTS({ idCompany: state.company._id })
           );
-
-          this.filterCustomers = {
-            ...this.filterCustomers,
-            company: state.company._id,
-          };
 
           setTimeout(() => {
             this.paginator.pageIndex = 0;

@@ -1,4 +1,4 @@
-<button mat-flat-button (click)="openDrawer1('390px', 'NEW_CUSTOMER', null)"
+<button mat-flat-button (click)="openDrawer1('600px', 'NEW_CUSTOMER', null)"
   class="extended-fab table-floating-button active-elevation">
   <mat-icon> add </mat-icon>
   Cliente
@@ -143,9 +143,16 @@
           </span>
           }
           @else if (element.tempSuspended) {
-          <span class="tertiary" fxLayoutAlign="center center">
-            <mat-icon fontIcon="schedule" matTooltip="Suspendido temporalmente"></mat-icon>
-          </span>
+            @if (element.tempSuspended.isActive) {
+              <span class="secondary" fxLayoutAlign="center center">
+                <mat-icon fontIcon="event_available" matTooltip="Suspendido temporalmente"></mat-icon>
+              </span>
+            }
+            @else {
+              <span class="error" fxLayoutAlign="center center">
+                <mat-icon fontIcon="schedule" matTooltip="Esperando pago..."></mat-icon>
+              </span>
+            }
           }
         </td>
       </ng-container>

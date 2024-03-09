@@ -1,0 +1,218 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="newCustomer" autocomplete="off" class="surface drawer-form">
+
+  <mat-toolbar fxLayoutGap="8px" class="drawer-header">
+
+    @if (customer) {
+    <span>Editar cliente</span>
+    }
+    @else {
+    <span>Nuevo cliente</span>
+    }
+
+    <span fxFlex></span>
+
+    <button mat-icon-button (click)="closeDrawer1()" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </mat-toolbar>
+
+  <ngx-simplebar fxLayout="row" fxLayoutAlign="center center" class="drawer-content">
+    <div fxLayout="column" style="width: 100%;" fxLayoutGap="12px">
+
+      <p class="mat-subtitle-2 primary">Información del propietario</p>
+      <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Proyecto</mat-label>
+        <input type="text" matInput formControlName="_project" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayProject">
+          @for (project of filteredProjects | async; track project) {
+          <mat-option [value]="project">
+            {{project.code}} - {{project.name}}
+          </mat-option>
+          }
+        </mat-autocomplete>
+        @if (newCustomer.get('_project').value) {
+        <button matSuffix mat-icon-button (click)="newCustomer.get('_project').setValue(null);">
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+        @if (newCustomer.get('_project')?.hasError('required')) {
+        <mat-error>
+          *El proyecto es requerido.
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutGap="8px">
+        <mat-form-field fxFlex appearance="outline" floatLabel="always">
+          <mat-label>Código</mat-label>
+          @if(!customer && newCustomer.get('_project').value) {
+          <span matTextPrefix>{{
+            newCustomer.get('_project').value.code
+            }}</span>
+          }
+          <input matInput type="text" formControlName="code"
+            (input)="newCustomer.get('code').setValue(newCustomer.get('code').value.toUpperCase()!)" />
+          <mat-icon matSuffix>qr_code</mat-icon>
+          @if (newCustomer.get('code')?.hasError('required')) {
+          <mat-error>
+            *El código es requerido.
+          </mat-error>
+          }
+          @if (newCustomer.get('code')?.hasError('cannotContainSpace')) {
+          <mat-error>
+            *No se permiten espacios en blanco.
+          </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>NIT</mat-label>
+          <input matInput type="text" formControlName="nit"
+            (input)="newCustomer.get('nit').setValue(newCustomer.get('nit').value.toUpperCase()!)" />
+          <mat-icon matSuffix>receipt_long</mat-icon>
+          @if (newCustomer.get('nit')?.hasError('required')) {
+          <mat-error>
+            *El NIT es requerido.
+          </mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="name" placeholder="Ingrese el nombre del propietario"
+          (input)="newCustomer.get('name').setValue(newCustomer.get('name').value.toUpperCase()!)" />
+        <mat-icon matSuffix>person</mat-icon>
+        @if (newCustomer.get('name')?.hasError('required')) {
+        <mat-error>
+          *El nombre es requerido
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Dirección</mat-label>
+        <input matInput type="text" formControlName="address" placeholder="Ingrese la dirección de la propiedad" />
+        <mat-icon matSuffix>location_on</mat-icon>
+        @if (newCustomer.get('address')?.hasError('required')) {
+        <mat-error>
+          *La dirección es requerida
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Correo Electrónico</mat-label>
+        <input matInput type="text" formControlName="email" placeholder="nombre@gmail.com" />
+        <mat-icon matSuffix>alternate_email</mat-icon>
+        @if (newCustomer.get('email')?.hasError('email')) {
+        <mat-error>
+          *Ingrese un correo electrónico válido
+        </mat-error>
+        }
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutGap="8px">
+
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>Teléfono</mat-label>
+          <input matInput type="text" formControlName="phone" placeholder="Ingrese el teléfono del propietario" />
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>
+            Cuota personalizada</mat-label>
+          <span matTextPrefix>Q. &nbsp;</span>
+          <input matInput type="number" formControlName="customFee">
+          @if (newCustomer.get('customFee').value) {
+          <button matSuffix mat-icon-button (click)="newCustomer.get('customFee').setValue(null);">
+            <mat-icon>close</mat-icon>
+          </button>
+          }
+          @if (newCustomer.get('customFee')?.hasError('required')) {
+          <mat-error>
+            *La cuota es requerida
+          </mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row">
+        <div matListItemTitle>Servicio por construcción </div>
+        <span fxFlex></span>
+        <mat-slide-toggle formControlName="isBuild" color="accent"></mat-slide-toggle>
+      </div>
+
+      <!-- <br> -->
+
+      <div fxLayout="row">
+        <div matListItemTitle>Suspender servicio</div>
+        <span fxFlex></span>
+        <mat-slide-toggle formControlName="isSuspended" color="warn"></mat-slide-toggle>
+      </div>
+
+      <br>
+      <mat-divider></mat-divider>
+      <br>
+
+      <p class="mat-subtitle-2 primary">Información del inquilino</p>
+      <br>
+
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput [formControl]="tenantName" type="text" placeholder="Nombre completo del inquilino"
+          (input)="tenantName.setValue(tenantName.value.toUpperCase()!)">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <div fxLaoyut="row" fxLayoutGap="8px">
+
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>NIT</mat-label>
+          <input matInput [formControl]="tenantNit" type="text" placeholder="NIT del inquilino"
+            (input)="tenantNit.setValue(tenantNit.value.toUpperCase()!)">
+          <mat-icon matSuffix>receipt_long</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field fxFlex appearance="outline">
+          <mat-label>Móvil</mat-label>
+          <input matInput [formControl]="tenantPhone" type="text" placeholder="Móvil del inquilino">
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+
+      </div>
+
+      <div fxLayout="row">
+        <div matListItemTitle> Facturar como inquilino </div>
+        <span fxFlex></span>
+        <mat-slide-toggle [formControl]="isTenant" color="accent"></mat-slide-toggle>
+      </div>
+
+    </div>
+  </ngx-simplebar>
+
+  <mat-divider></mat-divider>
+
+  @if (customer) {
+  <div class="drawer-actions" fxLayoutGap="8px">
+    <button mat-flat-button type="submit" class="filled-button">
+      Guardar
+    </button>
+    <button mat-stroked-button (click)="deleteCustomer()" type="button" class="outlined-button">
+      Eliminar
+    </button>
+  </div>
+  }
+  @else {
+  <div class="drawer-actions" fxLayoutGap="8px">
+    <button mat-flat-button type="submit" class="filled-button">
+      Guardar
+    </button>
+  </div>
+  }
+
+</form>
