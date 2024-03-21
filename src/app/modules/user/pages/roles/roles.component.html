@@ -32,29 +32,34 @@
     <div fxLayout="row wrap" fxLayoutGap="8px grid" class="grid">
 
       @for (role of filterRoles; track role) {
-      <div fxFlex.gt-lg="25" fxFlex.lg="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.lt-sm="100">
+      <div fxFlex.gt-lg="25" fxFlex.lg="33" fxFlex.md="33" fxFlex.sm="50" fxFlex.lt-sm="100">
         <mat-card class="outlined-card">
           <mat-card-header>
-            <mat-icon matCardAvatar fontIcon="admin_panel_settings" color="primary"></mat-icon>
+            <span matCardAvatar class="primary">
+              <mat-icon  fontIcon="admin_panel_settings"></mat-icon>
+            </span>
             <mat-card-title>{{ role.name }}</mat-card-title>
             <mat-card-subtitle>{{ role.type }}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <p>
+            <span fxFlex="12"></span>
+            <p class="mat-subtitle-1">
               @for (module of role.modules; track module) {
               <span> {{ module.label }} | </span>
               }
             </p>
-            <button mat-flat-button (click)="openDrawer1('600px', 'NEW_ROLE', role)"
-              color="primary" class="filled-tonal-button">
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-flat-button (click)="openDrawer1('600px', 'NEW_ROLE', role)" color="primary"
+              class="filled-tonal-button">
               Editar
             </button>
-          </mat-card-content>
+          </mat-card-actions>
         </mat-card>
       </div>
       }
       @empty {
-        <app-empty fxFlex message="No se encontraron roles"></app-empty>
+      <app-empty fxFlex message="No se encontraron roles"></app-empty>
       }
 
     </div>

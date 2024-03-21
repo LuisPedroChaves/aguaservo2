@@ -32,10 +32,12 @@
     <div fxLayout="row wrap" fxLayoutGap="8px grid" class="grid">
 
       @for (user of filterUsers; track user) {
-      <div fxFlex.gt-lg="25" fxFlex.lg="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.lt-sm="100">
+      <div fxFlex.gt-lg="25" fxFlex.lg="33" fxFlex.md="33" fxFlex.sm="50" fxFlex.lt-sm="100">
         <mat-card class="outlined-card">
           <mat-card-header>
-            <mat-icon matCardAvatar fontIcon="person" color="primary"></mat-icon>
+            <span matCardAvatar class="primary">
+              <mat-icon fontIcon="person"></mat-icon>
+            </span>
             <mat-card-title>{{ user.name }}</mat-card-title>
             <mat-card-subtitle>{{ user.username }}</mat-card-subtitle>
           </mat-card-header>
@@ -46,16 +48,18 @@
                 {{ user.role?.name }}
               </p>
             </div>
-            <button mat-flat-button (click)="openDrawer1('390px', 'NEW_USER', user)"
-              color="primary" class="filled-tonal-button">
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-flat-button (click)="openDrawer1('390px', 'NEW_USER', user)" color="primary"
+              class="filled-tonal-button">
               Editar
             </button>
-          </mat-card-content>
+          </mat-card-actions>
         </mat-card>
       </div>
       }
       @empty {
-        <app-empty fxFlex message="No se encontraron usuarios"></app-empty>
+      <app-empty fxFlex message="No se encontraron usuarios"></app-empty>
       }
 
     </div>

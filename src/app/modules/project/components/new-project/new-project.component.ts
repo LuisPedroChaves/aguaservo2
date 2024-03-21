@@ -129,6 +129,7 @@ export class NewProjectComponent implements OnInit, OnDestroy {
     if (this.project) {
       this.project = {
         ...this.project,
+        _company: this.company,
         code,
         name,
         fee,

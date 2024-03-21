@@ -1,12 +1,12 @@
 <div fxLayoutAlign="start center" fxLayoutGap="8px">
   @if (type === 'SUCCESS') {
-  <mat-icon fontIcon="done" color="accent"></mat-icon>
+  <mat-icon fontIcon="check_circle" color="primary"></mat-icon>
   }
   @if (type === 'WARNING') {
-  <mat-icon fontIcon="error_outline" color="accent"></mat-icon>
+  <mat-icon fontIcon="warning" color="accent"></mat-icon>
   }
-  @if (type === 'SUCDANGERCESS') {
-  <mat-icon fontIcon="" color="warn"></mat-icon>
+  @if (type === 'ERROR') {
+  <mat-icon fontIcon="error" color="warn"></mat-icon>
   }
   <span>
     {{ message }}

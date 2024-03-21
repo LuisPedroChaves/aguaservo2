@@ -41,7 +41,9 @@
         <div fxFlex.gt-lg="33" fxFlex.lg="33" fxFlex.md="50" fxFlex.sm="50" fxFlex.lt-sm="100">
           <mat-card class="outlined-card">
             <mat-card-header>
-              <mat-icon matCardAvatar fontIcon="apartment" color="primary"></mat-icon>
+              <div matCardAvatar class="secondary">
+                <mat-icon  fontIcon="apartment" color="primary"></mat-icon>
+              </div>
               <mat-card-title>{{ project.name }}</mat-card-title>
               @if (project.isActive) {
               <mat-card-subtitle class="primary">ACTIVO</mat-card-subtitle>

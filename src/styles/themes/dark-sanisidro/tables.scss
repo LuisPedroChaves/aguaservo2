@@ -1,9 +1,15 @@
 .dark-sanisidro {
   .mat-mdc-table .mat-mdc-header-cell {
-    background-color: $secondary-container !important;
-    color: $on-secondary-container !important;
+    background-color: $surface !important;
+    color: $on-surface !important;
   }
+
+  .mat-mdc-table .mat-mdc-row:nth-child(even) {
+    background-color: $surface-container-low !important;
+  }
+
   .mat-mdc-table .mat-mdc-row:hover {
     background-color: $surface-container !important;
   }
+
 }

@@ -63,7 +63,7 @@ export class AuthInterceptor implements HttpInterceptor {
         if (err.status === 401) {
           localStorage.removeItem('aguaservo2-session');
           this.snackBarService.show(
-            'DANGER',
+            'ERROR',
             err.error.error ? err.error.error : err.statusText,
             5000
           );
@@ -72,7 +72,7 @@ export class AuthInterceptor implements HttpInterceptor {
         }
 
         this.snackBarService.show(
-          'DANGER',
+          'ERROR',
           err.error.error ? err.error.error : err.message,
           5000
         );
